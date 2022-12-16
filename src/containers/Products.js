@@ -39,6 +39,15 @@ function Products({chocolate}) {
     setProductList(tempProductList)
   }
 
+  const removeCart=(id)=>{
+    const tempProductList = [...productList]
+    tempProductList[id]['cartCount']--
+    setProductList(tempProductList)
+  }
+
+  const calculateGrandTotal = () => {
+    return 500022
+  }
   return (
     <>
     <div style={{display:'flex'}}>
@@ -69,12 +78,21 @@ function Products({chocolate}) {
       return(
         <tr>
            <th>{item.name}</th>
-           <th>{item.cartCount}</th>
-           <th>{item.price}</th>
-        </tr>
+           <th>
+             <button
+               onClick={()=> removeCart(id)}
+             >-</button>
+             {item.cartCount}
+             <button 
+             onClick={()=> addCart(id)}>
+               +</button>
+             </th>
+           <th>{item.price* item.cartCount}</th>
+
+        </tr>        
       )
       })}
-
+   Grand Total: {calculateGrandTotal()}
     </table>
  
   </>
