@@ -56,7 +56,27 @@ function Products({chocolate}) {
       <br/>
       {favLists.map((item,id)=> <li>{item.name}</li>)}
     </div>
-    {JSON.stringify(productList)}
+    <table border={1}>
+      <tr>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+      {productList.map((item,id)=>{
+        if(item.cartCount === 0){
+          return null
+        }
+      return(
+        <tr>
+           <th>{item.name}</th>
+           <th>{item.cartCount}</th>
+           <th>{item.price}</th>
+        </tr>
+      )
+      })}
+
+    </table>
+ 
   </>
   );
 }
