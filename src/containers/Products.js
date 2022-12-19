@@ -46,8 +46,13 @@ function Products({chocolate}) {
   }
 
   const calculateGrandTotal = () => {
-    return 500022
+    let sum = 0
+    productList.map((item)=>{
+      sum =  sum + (item.price *  item.cartCount)
+    })
+    return sum
   }
+  
   return (
     <>
     <div style={{display:'flex'}}>

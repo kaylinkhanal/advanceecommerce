@@ -1,12 +1,19 @@
 import React, { useState ,useEffect } from 'react';
 import AdvanceButton from '../components/advanceButton';
-
+import SocialLogin from '../components/socialLogin'
+import OtpLogin from '../components/otpLogin'
 const Login=({chocolate, color})=> {
-    const arr= ['black', 'blue','green','pink']
+   const [name,setName ]=useState('')
   return (
-      <>
-      {arr.map((item)=> <AdvanceButton color={item}/> )}
-      </>
+  <div>
+    <input onKeyUp ={(e)=> setName(e.target.value)}/>
+    <SocialLogin name={name}/>
+
+    <div style={{backgroundColor:'grey'}}>
+    <OtpLogin />
+    </div>
+  </div>
+
   );
 }
 export default Login;
